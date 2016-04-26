@@ -1,0 +1,19 @@
+#pagewrap {
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+
+body{
+    background-image: url("http://hygienspelet.se/resources/hygienspelet_Background.png");
+
+}
+
+
+.row {
+    margin-bottom: 3%;
+    margin-top: 2%;
+    overflow-wrap: break-word;
+    text-align: center;
+}
