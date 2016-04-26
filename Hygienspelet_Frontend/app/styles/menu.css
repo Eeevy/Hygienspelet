@@ -17,3 +17,12 @@ body{
     overflow-wrap: break-word;
     text-align: center;
 }
+#message-text{
+  min-height: 100px;
+  max-height: 400px;
+}
+#mailButton{
+padding: 0%;
+
+
+}
