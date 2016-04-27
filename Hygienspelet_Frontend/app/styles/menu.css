@@ -1,28 +1,52 @@
+#header {
+    padding: 1.618em 0 0;
+    margin-bottom: 3.631em;
+    border-bottom: 4px double #e8e4e3;
+    clear: both;
+    position: fixed;
+    z-index: 9999;
+    background-color: #fff;
+    min-width: 100%;
+}
 #pagewrap {
-    margin-left: 5%;
-    margin-right: 5%;
-
+    margin: 5%;
+    border: thick;
+    border-color: black;
+    background-color: rgba(255,255,255,0.4);
+    align-content: center;
+    text-align: center;
 }
 
 
 body{
     background-image: url("http://hygienspelet.se/resources/hygienspelet_Background.png");
+    background-repeat: repeat-y;
+    background-size: cover;
 
 }
 
+.btn-block{
+    height: 100%;
+    width: 100%;
+}
 
 .row {
     margin-bottom: 3%;
     margin-top: 2%;
     overflow-wrap: break-word;
     text-align: center;
+    align-content: center;
 }
+
+#logotype{
+    display: block;
+    margin: 0 auto;
+}
+
 #message-text{
   min-height: 100px;
   max-height: 400px;
 }
 #mailButton{
 padding: 0%;
-
-
 }
