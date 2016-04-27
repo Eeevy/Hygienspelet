@@ -1,0 +1,16 @@
+#pagewrap {
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+div{
+    margin: 1%;
+}
+
+body{
+    background-image: url("http://hygienspelet.se/resources/hygienspelet_Background.png");
+
+}
+.text-muted-question{
+    color: aliceblue;
+}
