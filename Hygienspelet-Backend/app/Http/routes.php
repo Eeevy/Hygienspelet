@@ -20,13 +20,13 @@
 //    return view('welcome', compact('people'));
 //});
 
-//Route::get('about', function(){
-//   return view('pages.about');
-//});
+Route::get('/', function(){
+   return 'Welcome';
+});
 
 
-Route::get('/', 'PagesController@home');
-
-Route::get('about', 'PagesController@about');
-
-Route::get('cards', 'CardsController@cards');
+//Route::get('/', 'PagesController@home');
+//
+//Route::get('about', 'PagesController@about');
+//
+//Route::get('cards', 'CardsController@cards');
