@@ -10,7 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//
+//Route::get('/', function () {
+//
+//    $people = ['Emma', 'Matt', 'Evelyn'];
+//
+//   // return View::make();
+//    //return view('welcome', ['people' => $people]);
+//    return view('welcome', compact('people'));
+//});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('about', function(){
+//   return view('pages.about');
+//});
+
+
+Route::get('/', 'PagesController@home');
+
+Route::get('about', 'PagesController@about');
+
+Route::get('cards', 'CardsController@cards');
