@@ -2,5 +2,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Welcome Evelyn!</h1>
+
+    <h1><?php echo "Welcome"; ?></h1>
+
 @stop

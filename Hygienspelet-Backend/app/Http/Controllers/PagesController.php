@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 
 class PagesController extends Controller
 {
-    public function home(){
-        $people = array("Emma", "David", "Sara", "Evelyn", "Andreas");
-        
-        return view('welcome', compact('people'));
+    /**
+     * Displays the startpage
+     * @return Response
+     */
+    public function start(){
+        return view('basic');
     }
 
-    public function about(){
-        return view('about');
+    /**
+     * Display the contact page
+     * @return mixed
+     */
+    public function contact(){
+        return view('contact');
     }
+    
+
+    
 }
 
 
