@@ -13,7 +13,7 @@
 
 //* * * * * *TA BORT DETTA NEDAN INNAN DU PUSHAR EMMA!!!!
 
-Route::get('/', 'TodoListController@index');
+//Route::get('/', 'TodoListController@index');
 
 
 
@@ -30,7 +30,7 @@ Route::get('/', 'TodoListController@index');
  * Display startpage
  * @Response
  */
-//Route::get('/', 'PagesController@start');
+Route::get('/', 'PagesController@start');
 
 /**
  * Displays contact page
