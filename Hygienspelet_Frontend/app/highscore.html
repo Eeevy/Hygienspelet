@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Example of Twitter Typeahead</title>
+    <!-- Bootstrap core CSS OPTIONAL -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JavaScript-->
 
-</body>
+
+    </head>
+    <body>
+    <form id="form-country_v1" name="form-country_v1">
+        <div class="typeahead__container">
+            <div class="typeahead__field">
+
+                <span class="typeahead__query">
+                    <input class="js-typeahead-country_v1" name="country_v1[query]" type="search" placeholder="Search" autocomplete="off">
+                </span>
+                <span class="typeahead__button">
+                    <button type="submit">
+                        <i class="typeahead__search-icon"></i>
+                    </button>
+                </span>
+
+            </div>
+        </div>
+    </form>
+    </body>
+
+   <!-- ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="/Users/Andreas/Downloads/twitter-typeahead.js-5037e13/src/typeahead/typeahead.js"></script>
+<script src="/Users/Andreas/Downloads/twitter-typeahead.js-5037e13/src/bloodhound/bloodhound.js"></script>
 </html>

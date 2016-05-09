@@ -1,122 +1,126 @@
 body{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .hero {
     background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
     background-size: cover;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
-    min-height: 100vh;
 }
 .hero:before {
     content: '';
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
-    height: 100%;
+    bottom: 0;
     left: 0;
     background-color: #0666b0;
     opacity: .5;
 }
 
-.img-responsive{
-    height: 100%;
-    width: auto;
-    margin: 0 auto;
-    top: 50%;
-}
-
-.container-fluid{
-    align-content: center;
+.hero .intro {
+    padding: 3rem;
+    position: relative;
+    top: 35%;
+    transform: translateY(-30%);
     justify-content: center;
-    text-align: center;
 }
 
-#logotype{
+
+.hero .logotype{
     background: url("http://hygienspelet.se/resources/webLogo.png") no-repeat center center;
     background-size: contain;
-    width: 60%;
-    height: 100%;
-    min-height: 60px;
-    vertical-align: middle;
-}
-
-#infocolumn{
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    height: 85%;
-    min-height: 60px;
-    width: 20%;
-    vertical-align: middle;
-}
-
-#highscorecolumn{
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    height: 85%;
-    min-height: 60px;
-    width: 20%;
-    vertical-align: middle;
-}
-
-.row {
-    margin-bottom: 3%;
-    overflow-wrap: break-word;
-    text-align: center;
-    align-content: center;
-}
-
-#headerRow{
-    border-bottom: #000000;
-    border-bottom: groove;
+    width: 80vw;
     height: 10vh;
+    display: block;
+    margin: 0 auto;
     min-height: 60px;
 }
 
-#message-text{
-  min-height: 100px;
-  max-height: 400px;
-}
-/*
-Pop-up css  START
-*/
-#top{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
+.hero .tech-img {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
-#history{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
+#autocomplete{
+    width: 70vw;
+    margin: 0 auto;
+    margin-bottom: 1vh;
 }
 
-#active{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
+#search{
+    font-size:12px;
+    text-align: center;
+    font-weight: normal;
+    color: white;
 }
 
-#finished{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
+#outputcontent{
+    font-size:12px;
+    text-align: center;
+    font-weight: normal;
+    color: white;
 }
 
+.typeahead{
+    width: 50%;
+    min-height: 40px;
+}
 
+.bs-example{
+    font-family: sans-serif;
+    position: relative;
+    margin: 100px;
+}
+.typeahead, .tt-query, .tt-hint {
+    border: 2px solid #CCCCCC;
+    border-radius: 8px;
+    font-size: 24px;
+    height: 30px;
+    line-height: 30px;
+    outline: medium none;
+    padding: 8px 12px;
+    width: 396px;
+}
 
-
-
-/* POP_UP END*/
-
-/* AUTOCOMPLETION*/
+.typeahead {
+    background-color: #FFFFFF;
+}
+.typeahead:focus {
+    border: 2px solid #0097CF;
+}
+.tt-query {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+    color: #999999;
+}
+.tt-dropdown-menu {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 8px 0;
+    width: 422px;
+}
+.tt-suggestion {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 3px 20px;
+}
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #0097CF;
+    color: #FFFFFF;
+}
+.tt-suggestion p {
+    margin: 0;
+}
 
 #searchfield { display: block; width: 100%; text-align: center; margin-bottom: 35px; }
 
@@ -130,7 +134,7 @@ Pop-up css  START
     margin: 5px 0 0 0;
 }
 #searchfield form .biginput {
-    width: 60vw;
+    width: 600px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -159,7 +163,7 @@ Pop-up css  START
     margin: 5px 0 0 0;
 }
 #searchfield-challenge form .biginput-challenge {
-    width: 60vw;
+    width: 600px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -181,69 +185,24 @@ Pop-up css  START
 .autocomplete-selected { background: #f0f0f0; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
 
-/**/
 
-#footer{
-    margin-top: 10px;
-}
-
+/*För skärmar med pixel-bredd över 1024 pixlar*/
 @media only screen and (min-width: 1024px) {
-    #headerRow{
-        border-bottom: #000000;
-        border-bottom: groove;
-        height: 10vh;
-        min-height: 60px;
-    }
-
-    #logotype {
-        width: 60%;
-        height: 100%;
+    .hero .logotype {
+        width: 80vw;
+        height: 20vh;
         display: block;
         background-size: contain;
         margin: 0 auto;
     }
 
-    #highscorecolumn {
-        align-content: center;
+    .hero .tech-img {
         justify-content: center;
-        text-align: center;
-        height: 85%;
-        min-height: 60px;
-        width: 20%;
-    }
-
-    #infocolumn {
         align-content: center;
-        justify-content: center;
-        text-align: center;
-        height: 85%;
-        min-height: 60px;
-        width: 20%;
-
-    }
-
-    .hero {
-        background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
-        background-size: cover;
-        height: 100%;
-        overflow: hidden;
-        width: 100vw;
-        min-height: 100vh;
-        align-content: center;
-        justify-content: center;
         text-align: center;
     }
 
-    #challangeContainer{
-        width: 80vw;
-
-
-    /*    height: 40vh;*/
-    }
-
-    #playchallangeContainer{
-        width: 80vw;
-        margin-bottom: 3vh;
+    #autocomplete{
+        width: 20vw;
     }
 }
-

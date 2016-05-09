@@ -1,0 +1,201 @@
+/*Ta bort?*/
+#header {
+    padding: 1.618em 0 0;
+    margin-bottom: 3.631em;
+    border-bottom: 4px double #e8e4e3;
+    clear: both;
+    position: fixed;
+    z-index: 9999;
+    background-color: #fff;
+    min-width: 100%;
+}
+#pagewrap {
+    margin: 5%;
+    border: thick;
+    border-color: black;
+    background-color: rgba(255,255,255,0.4);
+    align-content: center;
+    text-align: center;
+}
+
+
+body{
+    background-image: url("http://hygienspelet.se/resources/hygienspelet_Background.png");
+    background-repeat: repeat-y;
+    background-size: cover;
+
+}
+
+.btn-block{
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    margin-bottom: 3%;
+    margin-top: 2%;
+    overflow-wrap: break-word;
+    text-align: center;
+    align-content: center;
+}
+
+#logotype{
+    display: block;
+    margin: 0 auto;
+}
+
+#message-text{
+  min-height: 100px;
+  max-height: 400px;
+}
+#mailButton{
+padding: 0%;
+}
+
+#top{
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y:scroll;
+
+}
+
+#history{
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y:scroll;
+
+}
+
+#active{
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y:scroll;
+
+}
+
+#finished{
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y:scroll;
+
+}
+
+
+
+.typeahead{
+    width: 50%;
+    min-height: 40px;
+ 
+}
+.bs-example{
+    font-family: sans-serif;
+    position: relative;
+    margin: 100px;
+}
+.typeahead, .tt-query, .tt-hint {
+    border: 2px solid #CCCCCC;
+    border-radius: 8px;
+    font-size: 24px;
+    height: 30px;
+    line-height: 30px;
+    outline: medium none;
+    padding: 8px 12px;
+    width: 396px;
+}
+.typeahead {
+    background-color: #FFFFFF;
+}
+.typeahead:focus {
+    border: 2px solid #0097CF;
+}
+.tt-query {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+    color: #999999;
+}
+.tt-dropdown-menu {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 8px 0;
+    width: 422px;
+}
+.tt-suggestion {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 3px 20px;
+}
+.tt-suggestion.tt-is-under-cursor {
+    background-color: #0097CF;
+    color: #FFFFFF;
+}
+.tt-suggestion p {
+    margin: 0;
+}
+
+
+#searchfield { display: block; width: 100%; text-align: center; margin-bottom: 35px; }
+
+#searchfield form {
+    display: inline-block;
+    background: #eeefed;
+    padding: 0;
+    margin: 0;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 5px 0 0 0;
+}
+#searchfield form .biginput {
+    width: 600px;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    color: #aeaeae;
+    font-weight:normal;
+    font-size: 1.5em;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+#searchfield form .biginput:focus {
+    color: #858585;
+}
+
+#searchfield-challenge { display: block; width: 100%; text-align: center; margin-bottom: 35px; }
+
+#searchfield-challenge form {
+    display: inline-block;
+    background: #eeefed;
+    padding: 0;
+    margin: 0;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 5px 0 0 0;
+}
+#searchfield-challenge form .biginput-challenge {
+    width: 600px;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    color: #aeaeae;
+    font-weight:normal;
+    font-size: 1.5em;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+#searchfield-challenge form .biginput-challenge:focus {
+    color: #858585;
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }

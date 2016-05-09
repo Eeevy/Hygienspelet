@@ -1,0 +1,144 @@
+body{
+    overflow: hidden;
+}
+
+.hero {
+    background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    min-height: 100vh;
+}
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0666b0;
+    opacity: .5;
+}
+
+#logotype{
+     background: url("http://hygienspelet.se/resources/webLogo.png") no-repeat center center;
+     background-size: contain;
+     width: 60%;
+     height: 100%;
+     min-height: 60px;
+     vertical-align: middle;
+ }
+
+#headerRow{
+    border-bottom: #000000;
+    border-bottom: groove;
+    height: 10vh;
+    min-height: 60px;
+}
+
+.container-fluid{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#home{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: 85%;
+    min-height: 60px;
+    width: 20%;
+    vertical-align: middle;
+}
+
+#sound{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: 85%;
+    min-height: 60px;
+    width: 20%;
+    vertical-align: middle;
+}
+
+#question{
+    height: 50vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+#answer1{
+    margin-bottom: 2vh;
+}
+
+#answer2{
+    margin-bottom: 2vh;
+}
+
+#answer3{
+    margin-bottom: 2vh;
+}
+
+#answer4{
+    margin-bottom: 2vh;
+}
+
+#questionwell{
+    height: 100%;
+    width: 100%;
+}
+
+
+.img-responsive{
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    top: 50%;
+}
+
+@media only screen and (min-width: 1024px) {
+    #headerRow{
+        border-bottom: #000000;
+        border-bottom: groove;
+        height: 10vh;
+        min-height: 60px;
+    }
+
+    #logotype {
+        width: 60%;
+        height: 100%;
+        display: block;
+        background-size: contain;
+        margin: 0 auto;
+    }
+
+    #sound{
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        height: 85%;
+        min-height: 60px;
+        width: 20%;
+    }
+
+    #home{
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        height: 85%;
+        min-height: 60px;
+        width: 20%;
+    }
+
+    .hero {
+        background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+
+
+
+}
+
