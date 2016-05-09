@@ -131,6 +131,7 @@ Pop-up css  START
 }
 #searchfield form .biginput {
     width: 60vw;
+    max-width: 500px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -160,6 +161,7 @@ Pop-up css  START
 }
 #searchfield-challenge form .biginput-challenge {
     width: 60vw;
+    max-width: 500px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -176,8 +178,8 @@ Pop-up css  START
     color: #858585;
 }
 
-.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
-.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow: hidden; }
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow-x: hidden;  width: 60vw; max-width: 500px; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow-x: hidden; width: 60vw; max-width: 500px; }
 .autocomplete-selected { background: #f0f0f0; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
 

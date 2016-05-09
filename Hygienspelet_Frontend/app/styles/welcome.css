@@ -134,7 +134,8 @@ body{
     margin: 5px 0 0 0;
 }
 #searchfield form .biginput {
-    width: 600px;
+    width: 80vw;
+    max-width: 700px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -163,7 +164,8 @@ body{
     margin: 5px 0 0 0;
 }
 #searchfield-challenge form .biginput-challenge {
-    width: 600px;
+    width: 80vw;
+    max-width: 700px;
     height: 40px;
     padding: 0 10px 0 10px;
     background-color: #fff;
@@ -180,11 +182,10 @@ body{
     color: #858585;
 }
 
-.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
-.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow: hidden; }
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow-x: hidden;  width: 80vw; max-width: 700px; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow-x: hidden; width: 80vw; max-width: 700px; }
 .autocomplete-selected { background: #f0f0f0; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
-
 
 /*För skärmar med pixel-bredd över 1024 pixlar*/
 @media only screen and (min-width: 1024px) {
@@ -203,6 +204,22 @@ body{
     }
 
     #autocomplete{
-        width: 20vw;
+        width: 80vw;
+        max-width: 500px;
+    }
+    #searchfield form .biginput {
+        width: 80vw;
+        max-width: 700px;
+        height: 40px;
+        padding: 0 10px 0 10px;
+        background-color: #fff;
+        border: 1px solid #c8c8c8;
+        border-radius: 3px;
+        color: #aeaeae;
+        font-weight:normal;
+        font-size: 1.5em;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        transition: all 0.2s linear;
     }
 }
