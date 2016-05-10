@@ -11,12 +11,41 @@ class UnitController extends Controller
     //
 
     /**
-     * Display the specified info about Unit
-     * @return int $id
+     * Display all units
      * @return Response
      */
-    public function showUnit($id){
-       
+    public function getAll(){
+       echo "get all units from DB";
+//        $questions = \DB::table('questions')->get();
+//        return compact('questions');
+        return $units = \DB::table('Units')->get();
+    }
 
+    /**
+     * Get data from specified unit
+     * @param $id
+     */
+    public function getUnit($id){
+
+       // echo "get data from unit with id= $id";
+
+        $question = \App\Question::find($id);
+        return $question;
+    }
+
+    /**
+     * Add unit to database
+     * @param Request $request
+     */
+    public function add(Request $request){
+        echo "Add request= $request";
+    }
+
+    /**
+     * Remove unit with specified id
+     * @param $id
+     */
+    public function remove($id){
+        echo "Remove unit with id=$id";
     }
 }

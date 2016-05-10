@@ -57,9 +57,11 @@
     <div class="container-fluid">
 
         <!-- <form id="question-form" method="post" action="scripts/contact.php" role="form"> -->
-        <form id="question-form" method="post"  action="http://www.hygienspelet.se/public/scripts/question.php" role="form">
+<!--        <form id="question-form" method="post"  action="http://www.hygienspelet.se/public/scripts/question.php" role="form">-->
+        <form id="question-form" method="POST"  action="admin/store" role="form">
 
-            <div class="questions">
+
+        <div class="questions">
 
             <div class="questInputs">
 

@@ -11,20 +11,28 @@
 |
 */
 
-//* * * * * *TA BORT DETTA NEDAN INNAN DU PUSHAR EMMA!!!!
-
-//Route::get('/', 'TodoListController@index');
 
 
+//*******TEST
 
 
 
 
+Route::group( [ 'middleware' => ['web']], function() {
+    Route::get('cards', 'CardsController@index');
+
+
+    Route::get('cards/{card}', 'CardsController@show');
+
+
+    Route::post('cards/{card}/notes', 'CardsController@store');
+
+    Route::post('check/{question_id}', 'QuestionController@check');
 
 
 
 
-
+});
 // * * * * * * PagesController * * * * * * 
 /**
  * Display startpage
@@ -42,13 +50,18 @@ Route::get('/contact', 'PagesController@contact');
 // * * * * * * QuestionController * * * * * * *
 
 Route::get('/admin', 'QuestionController@create');
-/**
- * Store question info in database
- */
-Route::put('/admin/store', 'QuestionController@store');
 
 /**
- * Delete question with specified id
+ * Store question info in database * * * **NOT IMPLEMENTED
+ */
+Route::post('/admin/store', 'QuestionController@store');
+
+Route::get('getquestions', 'QuestionController@getQuestions');
+
+Route::get('getpackage', 'QuestionController@getPackage');
+
+/**
+ * Delete question with specified id * * * *NOT IMPLEMENTED
  */
 //Route::delete('/admin/delete/{id}', 'QuestionController');
 
@@ -56,16 +69,32 @@ Route::put('/admin/store', 'QuestionController@store');
 
 // * * * * *  * HighscoreController * * * * * *
 /**
- * Display highscores
+ * Display highscores in view
  */
-Route::get('/highscores', 'HighscoreController@listHighscores');
+Route::get('/highscore/view', 'HighscoreController@highscoreView');
 
-Route::get('/db', function(){
-    $lists =  DB::table('Todo_lists')->get();
-    foreach ($lists as $list){
-        echo "<li>".$list->Name."</li>";
-    }
-});
+/**
+ * Get highscore from database, return list
+ */
+Route::get('/highscore/list', 'HighscoreController@highscoreList');
+
+
+
+//* * * * * ** UnitController * * * ** * ** * *
+
+Route::get('/units/all', 'UnitController@getAll');
+
+/**
+ * Store new unit * * ** * * * * * * * *NOT IMPLEMENTED
+ */
+//Route::post('/unit', 'UnitController@add');
+
+/**
+ * Get data from specified unid id
+ */
+Route::get('/unit/{id}', 'UnitController@getUnit');
+
+//Route::delete('/delete/unit/{id}', 'UnitController@remove');
 
 
  
