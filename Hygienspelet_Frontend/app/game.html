@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="scripts/menu.js"></script>
+    <script src="scripts/game.js"></script>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -78,7 +78,7 @@
                                 <h4 class="modal-title">Highscore</h4>
                             </div>
                             <div class="modal-body">
-                                <p>Lista på highscore.</p>
+                                <p>STÄNG AV LJUD-KNAPP.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
@@ -92,36 +92,58 @@
 
     </div>
 
-    <div class="container-fluid" id = "questioncontationer">
+    <div class="container-fluid" id = "questioncontainer">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        <div class="progress" >
+            <div  class="progress-bar progress-bar-success progress-bar-striped active" id="status-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                1/10
+            </div>
+        </div>
+
+
     	<div class="row">
     		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "question">
                 <div class="well well-lg" id = "questionwell">Här ska frågan/bild in</div>
     		</div>
     	</div>
+
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "answer1">
-                    <button type="button" class="btn btn-default btn-lg btn-block">Svar 1</button>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+
+
+                <div class="btn-group" data-toggle="buttons" id="answer-group">
+                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw1">
+                        <input type="checkbox" autocomplete="off" id="answer1" value="1"> <span>Checkbox 1</span>
+                    </label>
+                    <br>
+                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw2">
+                        <input type="checkbox" autocomplete="off"  id="answer2" value="2"> <span>Checkbox 2</span>
+                    </label>
+                    <br>
+                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw3">
+                        <input type="checkbox" autocomplete="off" id="answer3" value="3"> <span>Checkbox 3</span>
+                    </label>
+                    <br>
+                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw4">
+                        <input type="checkbox" autocomplete="off" id="answer4" value="4"> <span>Checkbox 4</span>
+                    </label>
+                </div>
+
         	</div>
         </div>
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "answer2">
-                    <button type="button" class="btn btn-default btn-lg btn-block">Svar 2</button>
-            </div>
-        </div>
+
+
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "answer3">
-                    <button type="button" class="btn btn-default btn-lg btn-block">Svar 3</button>
-            </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <button type="button" class="btn btn-default btn-lg" onclick="proceed()">Fortsätt</button>
+        </div>
         </div>
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "answer4">
-                    <button type="button" class="btn btn-default btn-lg btn-block">Svar 4</button>
-            </div>
-        </div>
     </div>
+</div>
 </section>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

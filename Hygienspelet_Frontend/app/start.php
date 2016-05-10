@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!doctype html>
 <html lang="" xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
@@ -71,7 +76,7 @@
                 </div>
 
                 <div class="btn-group">
-                    <a href="http://www.hygienspelet.se">
+                    <a href="basic.php">
                     <button type="button" class="btn btn-default">Logga In</button>
                     </a>
                 </div>
@@ -92,5 +97,12 @@
     ga('send', 'pageview');
 </script>
 <!-- Built with love using Web Starter Kit -->
+
+<?php
+$_SESSION["favcolor"] = "green";
+$_SESSION["favanimal"] = "cat";
+echo "Session ba bloo";
+?>
+
 </body>
 </html>

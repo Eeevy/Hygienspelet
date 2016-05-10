@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="" xmlns:width="http://www.w3.org/1999/xhtml">
   <head>
@@ -347,5 +351,9 @@
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->
+  <?php
+  print_r($_SESSION);
+  ?>
+
   </body>
 </html>

@@ -1,16 +1,16 @@
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .hero {
     background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
     background-size: cover;
-    overflow: hidden;
+    overflow-x: hidden;
     min-height: 100vh;
 }
 .hero:before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -96,6 +96,27 @@ body{
     top: 50%;
 }
 
+.progress{
+    margin-top: 2%;
+}
+.btn-group{
+    width: 100%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+}
+
+.btn{
+    margin-bottom: 2%;
+}
+.btn-default:hover{
+
+}
+.btn-default.active, .btn-default:active {
+    background: lightsteelblue;
+
+
+}
+
 @media only screen and (min-width: 1024px) {
     #headerRow{
         border-bottom: #000000;
@@ -134,7 +155,7 @@ body{
         background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
         background-size: cover;
         height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
 
