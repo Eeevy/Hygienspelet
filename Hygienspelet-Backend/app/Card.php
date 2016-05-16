@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent;
 
-class Card extends Model
+class Card extends Eloquent
 {
     public function notes(){
         return $this->hasMany(Note::class);

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionTable extends Migration
+class CreateTableTodoitems extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class CreateQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('todoitems', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('questionText');
+            $table->string('content');
+            $table->dateTime('completed')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('questions');
+        Schema::drop('todoitems');
     }
 }

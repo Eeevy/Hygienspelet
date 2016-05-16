@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Card;
@@ -10,7 +10,9 @@ use App\Note;
 
 class CardsController extends Controller
 {
-    
+    public function createChallenge($cr, $rc ){
+        return $cr." ".$rc;
+    }
 
     public function index(){
 //        $cards = \DB::table('cards')->get();

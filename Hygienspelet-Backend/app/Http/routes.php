@@ -19,6 +19,9 @@
 
 
 Route::group( [ 'middleware' => ['web']], function() {
+    
+//    Route::get('createchallenge/{cr}&{rc}', 'CardsController@createChallenge');
+    
     Route::get('cards', 'CardsController@index');
 
 
@@ -28,6 +31,12 @@ Route::group( [ 'middleware' => ['web']], function() {
     Route::post('cards/{card}/notes', 'CardsController@store');
 
     Route::post('check/{question_id}', 'QuestionController@check');
+
+    Route::get('createchallenge/{cr}&{rc}', 'QuestionController@createChallenge');
+
+    Route::get('challenge/{id}', 'QuestionController@getPackageData');
+
+
 
 
 

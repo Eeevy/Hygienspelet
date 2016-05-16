@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model 
 {
-    protected $fillable = ['questionText'];
+    protected $table = 'questions';
+    protected $fillable = ['questionText'];//allows to fill this column
+
+    public $timestamps = false;
+
+    public function answer(){
+        return $this->hasOne(Answer::class);
+    }
+
+    public function category(){
+        return $this->hasOne(Category::class);
+    }
+
+    public function package(){
+        return $this->hasMany(QuestionPackage::class);
+    }
+
+
 }

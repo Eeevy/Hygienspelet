@@ -29,8 +29,8 @@ class UnitController extends Controller
 
        // echo "get data from unit with id= $id";
 
-        $question = \App\Question::find($id);
-        return $question;
+        $unit = \App\Unit::find($id);
+        return $unit;
     }
 
     /**

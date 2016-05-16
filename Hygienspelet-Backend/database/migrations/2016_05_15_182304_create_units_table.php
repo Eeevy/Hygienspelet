@@ -12,9 +12,11 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::table('units', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('units', function (Blueprint $table) {
+            $table->increments('ID');
+            $table->string('Name');
+            $table->string('Department');
+            $table->string('Division');
             $table->timestamps();
         });
     }
