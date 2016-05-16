@@ -9,7 +9,13 @@ $('#myModal').on('shown.bs.modal', function () {
 
 $(function () {
     showActiveChallengesList();
+
+    var unit= document.getElementById("unit").innerHTML;
+    console.log('UNIT:'+unit);
+
     $("#contact-form").submit(function () {
+
+
 
         var url = "scripts/contact.php";
 
@@ -99,15 +105,22 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 function showActiveChallengesList (){
 
+    /*
+    Get active challenges as json from server.
+     */
 
     var res=null;
 
     for (var i=0;i<25;i++){
         if (res===null){
-            res = ' <li class="list-group-item">Aktiva Utmaningar '+i+' </li>';
+            /*
+            Change to hygienspelet.se/acceptChallenge/ID
+            Fetch ChallengeUnitName and Challenge ID.
+             */
+            res = ' <a href="game.php"><li class="list-group-item">Aktiva Utmaningar '+i+' </li></a>';
         }
         else{
-            res += ' <li class="list-group-item">Aktiva Utmaningar '+i+' </li>';
+            res += ' <a href="game.php"><li class="list-group-item">Aktiva Utmaningar '+i+' </li></a>';
 
         }
 
@@ -120,7 +133,9 @@ function showActiveChallengesList (){
 
 function showFinishedChallengesList (){
 
-
+/*
+Get JSON with the 10 latest finished challenges.
+ */
     var res=null;
 
     for (var i=0;i<25;i++){
@@ -137,4 +152,38 @@ function showFinishedChallengesList (){
     $('#finished').html(res);
 
 };
+
+
+/*
+Challenge another unit.
+ */
+function createChallenge(userUnitID,chUnitID) {
+    console.log("UserUnitID:"+userUnitID+" ChallengedUnitID:"+chUnitID);
+
+ /*
+ Skapa en utmaning  genom att skicka IDn och hämta sedan spelpaket o spela.
+ få med dig utmaningID,enhetsid och frågor. du skapar utmaning-> creator ID.
+ Skicka sedan resultat till server.
+
+ anropa hygienspelet.se/game...isch4
+  */
+
+
+
+
+};
+
+/*
+Start a challenge from another unit.
+Mark challenge and click ->Accept challenge?->startChallenge();?
+ */
+function startChallenge() {
+    
+    /*
+    Mark a challenge and get that challenge id from a map?
+    RecieverID.
+     */
+    var challengeID; 
+    
+}
 

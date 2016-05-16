@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['department'] = $_GET['department'];
+$_SESSION['hiddenID'] = $_GET['hiddenID'];
 ?>
 
 <!doctype html>
@@ -20,7 +22,7 @@ session_start();
 
       <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery-1.9.1.min.js"></script>
       <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery.autocomplete.min.js"></script>
-      <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/currency-autocomplete.js"></script>
+      <script type="text/javascript" src="scripts/currency-autocomplete.js"></script>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -158,7 +160,11 @@ session_start();
         <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <p id="unit">Inloggad på: </p>
+                <p id="unit">
+                    Inloggad på: <?php echo $_SESSION['department']?>
+                    <br>
+                    ID: <?php echo $_SESSION['hiddenID']?>
+                </p>
 
 
 
@@ -199,7 +205,8 @@ session_start();
         <div class="container-fluid" id= "playchallangeContainer">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <button type="button" class="btn btn-default btn-lg btn-block">Spela Själv</button>
+                <a type="button"  class="btn btn-default btn-lg btn-block"
+                   href="game.php">Spela själv</a>
             </div>
         </div>
 
@@ -351,9 +358,5 @@ session_start();
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->
-  <?php
-  print_r($_SESSION);
-  ?>
-
   </body>
 </html>

@@ -1,3 +1,7 @@
+var userUnitID="";
+var challengedUnitID="";
+var userUnitName="";
+
 $(function(){
     var selected_unit= '?';
 
@@ -39,7 +43,12 @@ $(function(){
       var thehtml = '<strong>Vald avdelning:</strong> ' + suggestion.value + ' <br> <strong>Förkortning:</strong> ' + suggestion.data;
       $('#outputcontent').html(thehtml);
         lookup: selected_unit = suggestion.value;
+        userUnitName=suggestion.value;
         $('#unit').html('Inloggad på: '+selected_unit);
+        $('#hiddenID').val(suggestion.data);
+        userUnitID=suggestion.data;
+        console.log("UserUnitID:"+userUnitID);
+
 
     }
   });
@@ -48,8 +57,19 @@ $(function(){
         lookup: units,
         onSelect: function (suggestion) {
             lookup:selected_unit;
+            challengedUnitID=suggestion.data;
+            /*
+            Update userUnitID
+             */
+            selected_unit=document.getElementById('unit').innerHTML;
+            selected_unit=selected_unit.substring(selected_unit.indexOf(':')+1,selected_unit.indexOf("<br>"));
+            userUnitID= document.getElementById('unit').innerHTML;
+            userUnitID=userUnitID.substring(userUnitID.indexOf("ID: ")+4);
+
             var res = '<h4>'+selected_unit+' <small>VS</small> ' + suggestion.value + ' </h4>' +
-                '  <button type="button" class="btn btn-primary">Utmana</button>';
+                '  <button type="button" onclick="createChallenge(userUnitID,challengedUnitID)" class="btn btn-primary">Utmana</button>';
+
+
             $('#outputcontent-challenge').html(res);
 
 

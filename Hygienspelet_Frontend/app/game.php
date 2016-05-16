@@ -1,3 +1,10 @@
+<?php
+session_start();
+$_SESSION['department'] = $_GET['department'];
+$_SESSION['hiddenID'] = $_GET['hiddenID'];
+?>
+
+
 <!doctype html>
 <html lang="" xmlns:width="http://www.w3.org/1999/xhtml">
 <head>

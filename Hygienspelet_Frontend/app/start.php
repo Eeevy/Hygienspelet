@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 ?>
 
@@ -20,7 +19,7 @@ session_start();
 
     <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery.autocomplete.min.js"></script>
-    <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/currency-autocomplete.js"></script>
+    <script type="text/javascript" src="scripts/currency-autocomplete.js"></script>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -48,7 +47,6 @@ session_start();
     <!-- Stylesheet CSS -->
     <link rel="stylesheet" href="styles/welcome.css">
 
-
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
@@ -57,33 +55,29 @@ session_start();
 
 </head>
 <body>
-<!-- Add your site or app content here -->
-
 <section class="hero">
     <div class="row intro">
         <div class="small-centered medium-centered medium-6 large-5 columns">
             <div class = "logotype"></div>
         </div>
-
         <div class="small-centered medium-centered medium-6 large-5 columns">
             <div class="tech-img">
                 <div class="container-fluid">
                     <div class="row">
+
                         <h2 id ="search">Sök efter din avdelning.</h2>
-                        <form><input type="text" name="currency" class="biginput" id="autocomplete"></form>
+                        <form method="get" action="basic.php">
+                            <input type="text" name="department" class="biginput" id="autocomplete">
+                            <input type="hidden" name ="hiddenID" value = "" id="hiddenID">
+                            <br>
+                            <input type="submit" name="Hello" value ="Logga in">
+                        </form>
                         <h2 id="outputcontent"></h2>
                     </div>
-                </div>
-
-                <div class="btn-group">
-                    <a href="basic.php">
-                    <button type="button" class="btn btn-default">Logga In</button>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
 </div>
 
@@ -96,13 +90,5 @@ session_start();
     ga('create', 'UA-XXXXX-X', 'auto');
     ga('send', 'pageview');
 </script>
-<!-- Built with love using Web Starter Kit -->
-
-<?php
-$_SESSION["favcolor"] = "green";
-$_SESSION["favanimal"] = "cat";
-echo "Session ba bloo";
-?>
-
 </body>
 </html>

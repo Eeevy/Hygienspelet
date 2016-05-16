@@ -107,6 +107,11 @@ body{
 
 .btn{
     margin-bottom: 2%;
+
+}
+.btn-default{
+    overflow: auto;
+
 }
 .btn-default:hover{
 
