@@ -147,6 +147,7 @@ Get JSON with the 10 latest finished challenges.
 
         }
 
+        
     }
 
     $('#finished').html(res);
