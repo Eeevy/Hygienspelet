@@ -18,10 +18,7 @@ class Question extends Model
     public function category(){
         return $this->hasOne(Category::class);
     }
-
-    public function package(){
-        return $this->hasMany(QuestionPackage::class);
-    }
+    
 
 
 }

@@ -36,23 +36,6 @@ class QuestionController extends Controller
 
     }
 
-    /**
-     * Checking input to value in table
-     * @param Request $request
-     * @return array|string
-     */
-    public function check(Request $request, $id){
-//        $name = Input::get('name');
-        $result = 'Wrong answer';
-        $value = $request->get('body');
-        $answer = DB::table('questions')
-            ->where('id', '=', $id)->pluck('questionText');
-        $answer = $answer[0];
-        if($answer == $value){
-            return 'Correct!';
-        }
-        return $answer;
-    }
     
     /**
      * Remove the specified resource
@@ -64,15 +47,6 @@ class QuestionController extends Controller
         return "Question removed";
     }
 
-    /**
-     * Get one question from DB
-     */
-//    public function getQuestions(){
-////        return "get questions";
-//        $questions = DB::table('question')->get();
-//        return (compact('questions');
-////        return view('highscore', compact('questions'));
-//    }
 
     /**
      * Same as above but using model
@@ -83,6 +57,10 @@ class QuestionController extends Controller
 //        ->join('notes', 'cards.id', '=', 'card_id')
 //        ->select('cards.*', 'cards.title', 'notes.body')->get();
         return $results;
+    }
+
+    public function getQuestion($id){
+
     }
 
     /**
@@ -96,10 +74,14 @@ class QuestionController extends Controller
      * @return string
      */
     public function createChallenge($cr, $rc){
-        $questions = $this->getPackage();
-        $package
+        $package = new \App\QuestionPackage;
+        $packageId = $package->all(array('id'));
 
-        return  $package;
+        $question = \App\Question::first();
+//        \App\Challenge::create(array('unit_1_id' => $cr, 'unit_2_id' => $rc, 'questionPackage_id' => $package->id));
+
+
+        return  $packageId;
     }
 
     /**Returns a package of ten questions, now all columns
@@ -112,16 +94,40 @@ class QuestionController extends Controller
         return $package;
     }
 
-    public function storePackage(QuestionPackage $p){
+    public function storePackage(Request $p){
         $package = new QuestionPackage;
         return back();
     }
 
+    /**
+     * Get packageData for specified id
+     * @param $id
+     * @return mixed
+     */
     public function getPackageData($id){
-        $package = QuestionPackage::find($id);
-        $questions = $package->questions;
-        return $questions;
+        $package = \App\QuestionPackage::with('questions')->get();
+        return $package;
     }
 
+    public function getActiveChallenges($unitid){
+        $challenge = \App\Challenge::limit(10)->where('is_active', '=', 1)
+            ->where('unit_1_id', '=', $unitid)->get();
+        return $challenge;
+    }
+
+    public function getFinishedChallenges($unitid){
+        $challenge = \App\Challenge::limit(10)->where('is_active', '=', 0)
+            ->where('unit_1_id', '=', $unitid)->get();
+        return $challenge;
+    }
+
+    public function listen(){
+        DB::listen(function($query){
+            var_dump($query->sql);
+        });
+    }
+    
+    
+    
 
 }

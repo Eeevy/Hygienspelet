@@ -30,7 +30,9 @@ class UnitController extends Controller
        // echo "get data from unit with id= $id";
 
         $unit = \App\Unit::find($id);
-        return $unit;
+        $challenges = \App\Challenge::where();
+
+        return $challenges;
     }
 
     /**

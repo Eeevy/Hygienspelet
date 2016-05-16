@@ -34,7 +34,10 @@ Route::group( [ 'middleware' => ['web']], function() {
 
     Route::get('createchallenge/{cr}&{rc}', 'QuestionController@createChallenge');
 
-    Route::get('challenge/{id}', 'QuestionController@getPackageData');
+    /**
+     * Get package with related questions on specified id
+     */
+    Route::get('getpackage/{id}', 'QuestionController@getPackageData');
 
 
 
@@ -68,6 +71,14 @@ Route::post('/admin/store', 'QuestionController@store');
 Route::get('getquestions', 'QuestionController@getQuestions');
 
 Route::get('getpackage', 'QuestionController@getPackage');
+
+Route::get('getactive/{unitid}', 'QuestionController@getActiveChallenges');
+
+Route::get('getfinished/{unitid}', 'QuestionController@getFinishedChallenges');
+
+
+//Route::get('getpackage/{id}', 'QuestionController@getPackageData');
+
 
 /**
  * Delete question with specified id * * * *NOT IMPLEMENTED
@@ -106,4 +117,6 @@ Route::get('/unit/{id}', 'UnitController@getUnit');
 //Route::delete('/delete/unit/{id}', 'UnitController@remove');
 
 
- 
+Event::listen('illuminate.query', function($query){
+    var_dump($query);
+});
