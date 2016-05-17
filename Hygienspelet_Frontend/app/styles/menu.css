@@ -1,22 +1,26 @@
-body{
-    overflow-x: hidden;
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .hero {
-    background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
-    background-size: cover;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.2);
     overflow: hidden;
-    min-height: 100vh;
+    margin: 0 auto;
+    padding-top: 2vh;
 }
-.hero:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    left: 0;
-    background-color: #0666b0;
-    opacity: .5;
+
+#headerContainer{
+    margin-bottom: 1vh;
 }
 
 .img-responsive{
@@ -37,7 +41,7 @@ body{
     background-size: contain;
     width: 60%;
     height: 100%;
-    min-height: 60px;
+    min-height: 80%;
     vertical-align: middle;
 }
 
@@ -46,7 +50,7 @@ body{
     justify-content: center;
     text-align: center;
     height: 85%;
-    min-height: 60px;
+    min-height: 80%;
     width: 20%;
     vertical-align: middle;
 }
@@ -56,23 +60,28 @@ body{
     justify-content: center;
     text-align: center;
     height: 85%;
-    min-height: 60px;
+    min-height: 80%;
     width: 20%;
     vertical-align: middle;
 }
 
 .row {
-    margin-bottom: 3%;
+    margin-bottom: 2vh;
     overflow-wrap: break-word;
     text-align: center;
     align-content: center;
 }
 
 #headerRow{
-    border-bottom: #000000;
-    border-bottom: groove;
+    border-bottom: 2px solid white;
     height: 10vh;
     min-height: 60px;
+    position: static;
+}
+
+#departmentColumn{
+    text-align: left;
+    vertical-align: middle;
 }
 
 #message-text{
@@ -93,28 +102,50 @@ Pop-up css  START
     min-height: 100px;
     max-height: 300px;
     overflow-y:scroll;
-
 }
+/* POP_UP END*/
 
-#active{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
-}
+/*Challange-tab*/
 
 #finished{
-    min-height: 100px;
-    max-height: 300px;
-    overflow-y:scroll;
-
+    height: 40vh;
+    overflow-y: scroll;
 }
 
+#actives{
+    height: 40vh;
+    overflow-y: scroll;
+}
 
+.nav-tabs > li > a{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #676767;
+    padding: 5px 15px;
+    line-height: 2;
+    -webkit-transition: all 0.75s;
+    -moz-transition: all 0.75s;
+    transition: all 0.75s; }
 
+.nav-tabs > li > a:active{
+    background-color: #f5f5f5;
+    color: #676767;
+}
+.nav-tabs > li > a:focus {
+    background-color: #f5f5f5;
+    color: #676767;
+}
+.nav-tabs > li > a:hover{
+    background-color: #f5f5f5;
+    color: #676767;
+}
 
+/* active tabs */
+.nav-tabs > li.active > a:hover{
+    color: #222222;
+}
 
-/* POP_UP END*/
+/*Challange-tab End*/
+
 
 /* AUTOCOMPLETION*/
 
@@ -186,13 +217,44 @@ Pop-up css  START
 /**/
 
 #footer{
-    margin-top: 10px;
+    height: 5vh;
+    margin-top: 5vh;
+    min-height: 30px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
 }
 
+#facebook{
+    height: 85%;
+    min-height: 80%;
+    width: 50%;
+    vertical-align: middle;
+    margin: 0 auto;
+    padding-left: 20vw;
+}
+#mail{
+    margin: 0 auto;
+    height: 85%;
+    min-height: 80%;
+    width: 50%;
+    vertical-align: middle;
+    padding-right: 20vw;
+}
+
+
 @media only screen and (min-width: 1024px) {
+    .hero {
+        padding-left: 10vw;
+        padding-right: 10vw;
+        border-right: solid;
+        border-left: solid;
+        border-color: rgba(0,0,0, 0.2);
+    }
+
     #headerRow{
-        border-bottom: #000000;
-        border-bottom: groove;
+        border-bottom: 2px solid white;
         height: 10vh;
         min-height: 60px;
     }
@@ -203,6 +265,10 @@ Pop-up css  START
         display: block;
         background-size: contain;
         margin: 0 auto;
+    }
+
+    #departmentContainer{
+        height: auto;
     }
 
     #highscorecolumn {
@@ -224,28 +290,16 @@ Pop-up css  START
 
     }
 
-    .hero {
-        background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
-        background-size: cover;
-        height: 100%;
-        overflow: hidden;
-        width: 100vw;
-        min-height: 100vh;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-    }
-
     #challangeContainer{
-        width: 80vw;
+        width: 100%;
 
 
     /*    height: 40vh;*/
     }
 
     #playchallangeContainer{
-        width: 80vw;
-        margin-bottom: 3vh;
+        width: 100%;
     }
+
 }
 

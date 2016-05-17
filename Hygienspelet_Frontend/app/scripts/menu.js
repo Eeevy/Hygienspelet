@@ -126,7 +126,7 @@ function showActiveChallengesList (){
 
     }
 
-    $('#active').html(res);
+    $('#actives').html(res);
 
 };
 

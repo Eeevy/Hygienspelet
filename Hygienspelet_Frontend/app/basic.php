@@ -156,19 +156,17 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" id ="departmentContainer">
         <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id = "departmentColumn">
                 <p id="unit">
                     Inloggad på: <?php echo $_SESSION['department']?>
-                    <br>
-                    ID: <?php echo $_SESSION['hiddenID']?>
                 </p>
+            </div>
 
-
-
-                <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#bytavdelning">Byt avdelning</button>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#bytavdelning">Byt avdelning</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="bytavdelning" role="dialog">
@@ -196,11 +194,9 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
                     </div>
                 </div>
-
             </div>
-
-        </div>
-        </div>
+            </div>
+            </div>
 
         <div class="container-fluid" id= "playchallangeContainer">
         <div class="row">
@@ -248,11 +244,11 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
         <div class="container-fluid" id = "challangeContainer">
             <ul id="challenges" class="nav nav-tabs">
-                <li class="active"><a onclick="showActiveChallengesList()" href="#active" data-toggle="tab">Aktiva</a></li>
-                <li class=""><a onclick="showFinishedChallengesList()" href="#finished" data-toggle="tab">Avslutade</a></li>
+                <li class="active"><a onclick="showActiveChallengesList()" href="#active" data-toggle="tab" id = "aktiva">Aktiva</a></li>
+                <li class=""><a onclick="showFinishedChallengesList()" href="#finished" data-toggle="tab" id ="avslutade">Avslutade</a></li>
             </ul>
             <div id="challenges-content" class="tab-content">
-                <div class="tab-pane fade active in" id="active">
+                <div class="tab-pane fade active in" id="actives">
                 </div>
                 <div class="tab-pane fade" id="finished">
                 </div>
@@ -262,26 +258,19 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
 
-        <div class="container-fluid">
+        <div class="container-fluid" id = "footerContainer">
         <div class="row" id="footer">
 
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-
-            </div>
-
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id ="facebook">
                 <a href="https://www.facebook.com/Hygienspelet-268617866805285/">
-                <img src="http://hygienspelet.se/resources/FB-f-Logo__blue_72.png">
+                    <img src="http://hygienspelet.se/resources/FB-f-Logo__blue_72.png" class="img-responsive">
                 </a>
             </div>
 
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-
-            </div>
-
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-default btn-lg"  id="mailButton" data-toggle="modal" data-target="#sendMail"><img src="http://hygienspelet.se/resources/mail_logo4.png"></button>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id = "mail">
+                    <a data-toggle="modal" data-target="#sendMail">
+                        <img src="http://static.wixstatic.com/media/132ad9_4efcfd76175f43e8b0e49ca430155970.png_srz_300_300_85_22_0.50_1.20_0.00_png_srz" class="img-responsive">
+                    </a>
 
                 <!-- Modal -->
                 <div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -339,10 +328,6 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
                     </div>
                 </div>
 
-
-            </div>
-
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 
             </div>
         </div>
