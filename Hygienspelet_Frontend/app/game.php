@@ -63,7 +63,8 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id = "home">
                 <!-- Trigger the modal with a button -->
-                <img src="http://codeitdown.com/media/Home_Icon.svg" class="img-responsive">
+                <button type="button" id="homebtn" class="btn btn-default" onclick="home()">
+                    <img src="http://codeitdown.com/media/Home_Icon.svg" id="homelogo" class="img-responsive"></button>
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id ="logotype">
@@ -72,28 +73,9 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id = "sound">
-                <img src="http://codeitdown.com/media/Home_Icon.svg" class="img-responsive">
+               <button type="button" id="soundbtn" class="btn btn-default" onclick="toggleSound()">
+                   <img src="soundOn6.png" id="soundlogo" class="img-responsive"></button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="highscore" role="dialog">
-                    <div class="modal-dialog modal-lg">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Highscore</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>STÄNG AV LJUD-KNAPP.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -120,20 +102,20 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
                 <div class="btn-group" data-toggle="buttons" id="answer-group">
-                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw1">
-                        <input type="checkbox" autocomplete="off" id="answer1" value="1"> <span>Checkbox 1</span>
+                    <label class="btn btn-default btn-lg btn-block" onclick="selectSound()" id="btnAnsw1">
+                        <input type="checkbox"  autocomplete="off" id="answer1" value="1"> <span>Checkbox 1</span>
                     </label>
                     <br>
-                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw2">
-                        <input type="checkbox" autocomplete="off"  id="answer2" value="2"> <span>Checkbox 2</span>
+                    <label class="btn btn-default btn-lg btn-block" onclick="selectSound()" id="btnAnsw2">
+                        <input type="checkbox"  autocomplete="off"  id="answer2" value="2"> <span>Checkbox 2</span>
                     </label>
                     <br>
-                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw3">
+                    <label class="btn btn-default btn-lg btn-block"  onclick="selectSound()"  id="btnAnsw3">
                         <input type="checkbox" autocomplete="off" id="answer3" value="3"> <span>Checkbox 3</span>
                     </label>
                     <br>
-                    <label class="btn btn-default btn-lg btn-block" id="btnAnsw4">
-                        <input type="checkbox" autocomplete="off" id="answer4" value="4"> <span>Checkbox 4</span>
+                    <label class="btn btn-default btn-lg btn-block" onclick="selectSound()" id="btnAnsw4">
+                        <input type="checkbox"  autocomplete="off" id="answer4" value="4"> <span>Checkbox 4</span>
                     </label>
                 </div>
 
@@ -144,9 +126,10 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
         <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <button type="button" class="btn btn-default btn-lg" onclick="proceed()">Fortsätt</button>
-        </div>
+
+            <button type="button" id="proceed-btn" class="btn btn-default btn-lg" onclick="proceed()">
+                <img src="http://www.hygienspelet.se/public/forward.png" class="img-polaroid" id="proceed-img"></button>
+
         </div>
 
     </div>
