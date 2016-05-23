@@ -42,53 +42,34 @@ $(function () {
 
 
 function showHsList (){
-
-    
-    var res=null;
-    
-    for (var i=0;i<25;i++){
-        if (res===null){
-            res = ' <li class="list-group-item">Topplista '+i+' </li>';
+    var unit = document.getElementById("hiddenID").value;
+    $.getJSON('http://hygienspelet.se/gethighscores/'+unit ,function(jd) {
+        if(jd.length === 0) {
+            document.getElementById("depPoints").innerHTML = 'Din avdelning har inga poäng ännu';
         }
-        else{
-            res += ' <li class="list-group-item">Topplista '+i+' </li>';
-
+        else {
+            document.getElementById("depPoints").innerHTML = 'Din avdelning har: ' + jd[0].points + ' poäng';
         }
-
-    }
-    
-    $('#top').html(res);
-
-};
-
-function showUnitHsList (){
-
-    $.getJSON('http://hygienspelet.se/highscores' ,function(jd) {
+    })
+    $.getJSON('http://hygienspelet.se/gethighscores' ,function(jd) {
         if (jd.length === 0) {
             console.log("Empty JSON");
         }
+        var res = null;
 
-        else {
-            console.log(jd);
+        for (var i = 0; i < jd.length; i++) {
+            var position = i+1;
 
-            var res=null;
-
-            for (var i = 0; i < jd.length; i++) {
-                var item = jd[i];
-                var id = item.ID;
-                var points = item.points;
-                var unit = item.unitID;
-
-                if (res===null){
-                    res = ' <li class="list-group-item">Utmaningshistorik ( ID:'+id+' P:'+points+'U:'+unit+' )'+i+' </li>';
-                }
-                else{
-                    res += ' <li class="list-group-item">Utmaningshistorik (ID:'+id+' P:'+points+'U:'+unit+')'+i+' </li>';
-
-                }
+            if (res===null){
+                res = ' <li class="list-group-item">'+ position +'. '+jd[i].name+': '+jd[i].points+'</li>';
             }
-            $('#history').html(res);
+            else{
+                res += ' <li class="list-group-item">'+ position +'. '+jd[i].name+': '+jd[i].points+'</li>';
+
+            }
         }
+
+        $('#top').html(res);
     })
 };
 

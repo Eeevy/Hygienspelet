@@ -129,13 +129,10 @@ if(isset($_REQUEST['hiddenID']))
                                     <div class="container-fluid">
                                         <div class="well well-sm" id="highscore_list">
                                             <ul id="myTab" class="nav nav-tabs">
-                                                <li class="active"><a onclick="showHsList()" href="#top" data-toggle="tab">Topplista</a></li>
-                                                <li class=""><a onclick="showUnitHsList()" href="#history" data-toggle="tab">Utmaningshistorik</a></li>
+                                                <li class="active"><a onclick="showHsList()" href="#top" data-toggle="tab" id ="depPoints">Avdelning: </a></li>
                                             </ul>
                                             <div id="myTabContent" class="tab-content">
                                                 <div class="tab-pane fade active in" id="top">
-                                                </div>
-                                                <div class="tab-pane fade" id="history">
                                                 </div>
                                             </div>
                                         </div>

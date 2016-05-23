@@ -38,7 +38,6 @@ html, body {
     height: 100%;
     width: 20%;
     vertical-align: bottom;
-
 }
 
 #highscorecolumn{
@@ -249,8 +248,8 @@ Pop-up css  START
     color: #858585;
 }
 
-.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow-x: hidden;  width: 60vw; max-width: 500px; }
-.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow-x: hidden; width: 60vw; max-width: 500px; }
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow-x: hidden; max-height: 20vh;  width: 60vw; max-width: 500px; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 100%; white-space: normal; overflow-x: hidden; max-height: 20vh; width: 60vw; max-width: 500px; }
 .autocomplete-selected { background: #f0f0f0; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
 
