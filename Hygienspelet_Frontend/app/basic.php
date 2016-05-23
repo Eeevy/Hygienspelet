@@ -1,7 +1,9 @@
 <?php
 session_start();
-$_SESSION['department'] = $_GET['department'];
-$_SESSION['hiddenID'] = $_GET['hiddenID'];
+if(isset($_REQUEST['department']))
+    $_SESSION['department'] = $_GET['department'];
+if(isset($_REQUEST['hiddenID']))
+    $_SESSION['hiddenID'] = $_GET['hiddenID'];
 ?>
 
 <!doctype html>
@@ -22,7 +24,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
       <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery-1.9.1.min.js"></script>
       <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery.autocomplete.min.js"></script>
-      <script type="text/javascript" src="scripts/currency-autocomplete.js"></script>
+      <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/currency-autocomplete.js"></script>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -65,8 +67,8 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
             <div class="row" id = "headerRow">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id = "infocolumn">
                     <!-- Trigger the modal with a button -->
-                    <a data-toggle="modal" data-target="#about">
-                        <img src="http://codeitdown.com/media/Home_Icon.svg" class="img-responsive">
+                    <a href="#" data-toggle="modal" data-target="#about">
+                        <img src="http://whiteant.se/img/infoicon.png" class="img-responsive" id = "infoButton">
                     </a>
 
                     <!-- Modal -->
@@ -109,8 +111,8 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id = "highscorecolumn">
-                    <a data-toggle="modal"  onclick="showHsList()" data-target="#highscore">
-                        <img src="http://codeitdown.com/media/Home_Icon.svg" class="img-responsive">
+                    <a href="#" data-toggle="modal"  onclick="showHsList()" data-target="#highscore">
+                        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-silver-icons-sports-hobbies/044613-glossy-silver-icon-sports-hobbies-cup-trophy.png" class="img-responsive" id ="highscoreButton">
                     </a>
                     <!-- Modal -->
                     <div class="modal fade" id="highscore" role="dialog">
@@ -157,44 +159,22 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
         <div class="container-fluid" id ="departmentContainer">
-        <div class="row">
+        <div class="row" id = "departmentRow">
 
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id = "departmentColumn">
-                <p id="unit">
+                <div id="unit">
                     Inloggad på: <?php echo $_SESSION['department']?>
-                </p>
-            </div>
-
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#bytavdelning">Byt avdelning</button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="bytavdelning" role="dialog">
-                    <div class="modal-dialog modal-lg">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Välj Avdelning</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div id="searchfield">
-                                    <h2>Sök efter din avdelning.</h2>
-                                    <form><input type="text" name="currency" class="biginput" id="autocomplete"></form>
-                                </div><!-- @end #searchfield -->
-
-                                <p id="outputcontent">Här kommer ditt val att visas.</p>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-                            </div>
-                        </div>
-
-                    </div>
+                    <input type="hidden" id="hiddenID" value="<?php echo $_SESSION['hiddenID']?>">
                 </div>
             </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id = "logoutColumn">
+                <div class="btn-group" id = "logoutButtonn">
+                    <a type="button" class="btn btn-default" id ="logoutButton" href="http://www.hygienspelet.se">Logga Ut</a>
+                </div>
+            </div>
+
+
             </div>
             </div>
 
@@ -202,7 +182,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <a type="button"  class="btn btn-default btn-lg btn-block"
-                   href="game.php">Spela själv</a>
+                   href="http://www.hygienspelet.se/game/pr=<?php echo $_SESSION['hiddenID'];?>">Spela själv</a>
             </div>
         </div>
 
@@ -244,8 +224,8 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
         <div class="container-fluid" id = "challangeContainer">
             <ul id="challenges" class="nav nav-tabs">
-                <li class="active"><a onclick="showActiveChallengesList()" href="#active" data-toggle="tab" id = "aktiva">Aktiva</a></li>
-                <li class=""><a onclick="showFinishedChallengesList()" href="#finished" data-toggle="tab" id ="avslutade">Avslutade</a></li>
+                <li class="active"><a onclick="showActiveChallengesList()" href="#actives" data-toggle="tab" id = "aktiva">Aktiva utmaningar</a></li>
+                <li class=""><a onclick="showFinishedChallengesList()" href="#finished" data-toggle="tab" id ="avslutade">Avslutade utmaningar</a></li>
             </ul>
             <div id="challenges-content" class="tab-content">
                 <div class="tab-pane fade active in" id="actives">
@@ -259,11 +239,11 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
 
         <div class="container-fluid" id = "footerContainer">
-        <div class="row" id="footer">
+        <div class="row row-centered" id="footer">
 
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id ="facebook">
                 <a href="https://www.facebook.com/Hygienspelet-268617866805285/">
-                    <img src="http://hygienspelet.se/resources/FB-f-Logo__blue_72.png" class="img-responsive">
+                    <img src="http://100wattaren.se/sites/all/themes/hundra_wattaren/images/facebook-icon.svg" class="img-responsive">
                 </a>
             </div>
 
@@ -281,7 +261,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
                                 <h4 class="modal-title" id="exampleModalLabel">Kontakta Hygienspelet</h4>
                             </div>
                             <div class="modal-body">
-                                <form id="contact-form" method="post" action="scripts/contact.php" role="form">
+                                <form id="contact-form" method="post" action="http://www.hygienspelet.se/public/scripts/contact.php" role="form">
 
                                     <div class="messages"></div>
 

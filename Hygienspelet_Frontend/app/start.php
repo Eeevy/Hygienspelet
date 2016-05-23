@@ -19,7 +19,7 @@ session_start();
 
     <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/jquery.autocomplete.min.js"></script>
-    <script type="text/javascript" src="scripts/currency-autocomplete.js"></script>
+    <script type="text/javascript" src="http://www.hygienspelet.se/public/scripts/currency-autocomplete.js"></script>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 

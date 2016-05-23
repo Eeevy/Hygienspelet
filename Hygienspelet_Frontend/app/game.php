@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION['department'] = $_GET['department'];
-$_SESSION['hiddenID'] = $_GET['hiddenID'];
 ?>
 
 
@@ -19,7 +17,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="scripts/game.js"></script>
+    <script type="text/javascript" src="scripts/game.js"></script>
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -74,7 +72,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id = "sound">
                <button type="button" id="soundbtn" class="btn btn-default" onclick="toggleSound()">
-                   <img src="soundOn6.png" id="soundlogo" class="img-responsive"></button>
+                   <img src="http://www.hygienspelet.se/public/soundOn6.png" id="soundlogo" class="img-responsive"></button>
 
             </div>
         </div>
@@ -93,7 +91,7 @@ $_SESSION['hiddenID'] = $_GET['hiddenID'];
 
     	<div class="row">
     		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "question">
-                <div class="well well-lg" id = "questionwell">Här ska frågan/bild in</div>
+                <div class="well well-lg" id = "questionwell"></div>
     		</div>
     	</div>
 

@@ -7,9 +7,15 @@ var nbrOfCorrectAnswers=0;
 var currentQuestion;
 var alt1,alt2,alt3,alt4;
 var muted=false;
+var query="";
+var challengeID="";
+var unitID="";
+
+
+var pract=false,creator=false,reciever=false;
 //Sounds
 var correctSound = new Audio('http://www.hygienspelet.se/public/sounds/correct.mp3');
-var inCorrectSound = new Audio('http://www.hygienspelet.se/public/sounds/incorrect.mp3');
+var inCorrectSound = new Audio('http://www.hygienspelet.se/public/sounds/incorrect2.mp3');
 var clickSound = new Audio('http://www.hygienspelet.se/public/sounds/click.mp3');
 
 $(function () {
@@ -18,10 +24,86 @@ $(function () {
 
 
 function loadGame (){
-    
+    query=window.location.toString();
+    console.log('Before Substring:'+query);
+    query=query.substring(query.lastIndexOf('/')+1,query.length);
+    console.log('After Substring:'+query);
+    //query=query.substring(1);
+    if (query.indexOf('cr=')==0){
+        creator=true;
+        createChallenge(query);
+    }
+    else if (query.indexOf('pr=')==0){
+        pract=true;
+        practice(query);
+    }
+    else if(query.indexOf('ch=')==0){
+        reciever=true;
+        getChallenge(query);
+    }
+}
+
+function createChallenge(param)     {
 
 
-    $.getJSON('http://hygienspelet.se/getpackage', function (jd) {
+//Hämta challengeID
+    console.log("CreateChallenge:"+param);
+
+
+    $.getJSON('http://hygienspelet.se/createchallenge/'+param, function (jd) {
+
+
+        if (jd.length === 0) {
+            console.log("Empty JSON");
+        }
+
+        else {
+            console.log(jd);
+
+            challengeID=jd[0][0].challenge_id;
+
+            var pkg = jd[1];
+            for (var i = 0; i < pkg.length; i++) {
+                var id = pkg[i].id;
+                var text = pkg[i].question;
+                var answers = pkg[i].answer_alternative_id;
+                var picture = pkg[i].picture_url;
+                var questionID= pkg[i].question_id;
+                var answ1=pkg[i].aa_1;
+                var answ2=pkg[i].aa_2;
+                var answ3=pkg[i].aa_3;
+                var answ4=pkg[i].aa_4;
+                var correct=pkg[i].correct_answer;
+
+                console.log('id:' + id + ' text:' + text + ' AnswersID:' + answers + ' Picture:' + picture
+                    + ' QuestionID:' + questionID + ' A1:' + answ1 + ' A2:' + answ2
+                    + ' A3:' + answ3 + ' A4:' + answ4 + ' Correct:' + correct +" Challenge_ID:"+challengeID);
+                game_pkg.push({ID:id, Question: text, Answers: answers ,Picture:picture, QuestionID: questionID, AA1:answ1,
+                    AA2: answ2, AA3: answ3, AA4: answ4, Correct_Answer:correct});
+
+
+            }
+            console.log('print array: '+game_pkg);
+            nextQuestion();
+            updateProgressbar();
+
+        }
+
+    });
+}
+
+function getChallenge(param){
+
+
+    challengeID=param.substring(param.indexOf('=')+1);
+
+    console.log("GetChallenge:"+param+ " Ch-ID:"+challengeID);
+
+
+
+    $.getJSON('http://hygienspelet.se/getchallenge/'+challengeID, function (jd) {
+
+
         if (jd.length === 0) {
             console.log("Empty JSON");
         }
@@ -30,22 +112,72 @@ function loadGame (){
             console.log(jd);
             var pkg = jd;
             for (var i = 0; i < pkg.length; i++) {
-                var id = pkg[i].ID;
-                var text = pkg[i].Question;
-                var answers = pkg[i].Answer_alternative_ID;
-                var picture = pkg[i].Picture_URL;
-                var questionID= pkg[i].Question_ID;
-                var answ1=pkg[i].AA_1;
-                var answ2=pkg[i].AA_2;
-                var answ3=pkg[i].AA_3;
-                var answ4=pkg[i].AA_4;
-                var correct=pkg[i].Correct_answer;
+                var id = pkg[i].id;
+                var text = pkg[i].question;
+                var answers = pkg[i].answer_alternative_id;
+                var picture = pkg[i].picture_url;
+                var questionID= pkg[i].question_id;
+                var answ1=pkg[i].aa_1;
+                var answ2=pkg[i].aa_2;
+                var answ3=pkg[i].aa_3;
+                var answ4=pkg[i].aa_4;
+                var correct=pkg[i].correct_answer;
+
+
+
 
                 console.log('id:' + id + ' text:' + text + ' AnswersID:' + answers + ' Picture:' + picture
                     + ' QuestionID:' + questionID + ' A1:' + answ1 + ' A2:' + answ2
                     + ' A3:' + answ3 + ' A4:' + answ4 + ' Correct:' + correct);
                 game_pkg.push({ID:id, Question: text, Answers: answers ,Picture:picture, QuestionID: questionID, AA1:answ1,
-                AA2: answ2, AA3: answ3, AA4: answ4, Correct_Answer:correct});
+                    AA2: answ2, AA3: answ3, AA4: answ4, Correct_Answer:correct});
+
+
+            }
+            console.log('print array: '+game_pkg);
+            nextQuestion();
+            updateProgressbar();
+
+        }
+
+    });
+}
+
+function practice(param) {
+
+    unitID=param.substring(param.indexOf('=')+1);
+
+    console.log("PRACTICE:"+param+ " UnitID:"+unitID);
+    /*
+    Ändra senare för practice.
+     */
+    $.getJSON('http://hygienspelet.se/getpackage', function (jd) {
+
+
+        if (jd.length === 0) {
+            console.log("Empty JSON");
+        }
+
+        else {
+            console.log(jd);
+            var pkg = jd;
+            for (var i = 0; i < pkg.length; i++) {
+                var id = pkg[i].id;
+                var text = pkg[i].question;
+                var answers = pkg[i].answer_alternative_id;
+                var picture = pkg[i].picture_url;
+                var questionID= pkg[i].question_id;
+                var answ1=pkg[i].aa_1;
+                var answ2=pkg[i].aa_2;
+                var answ3=pkg[i].aa_3;
+                var answ4=pkg[i].aa_4;
+                var correct=pkg[i].correct_answer;
+
+                console.log('id:' + id + ' text:' + text + ' AnswersID:' + answers + ' Picture:' + picture
+                    + ' QuestionID:' + questionID + ' A1:' + answ1 + ' A2:' + answ2
+                    + ' A3:' + answ3 + ' A4:' + answ4 + ' Correct:' + correct);
+                game_pkg.push({ID:id, Question: text, Answers: answers ,Picture:picture, QuestionID: questionID, AA1:answ1,
+                    AA2: answ2, AA3: answ3, AA4: answ4, Correct_Answer:correct});
 
 
             }
@@ -210,6 +342,7 @@ function nextQuestion (){
 }
 
 function showResult (){
+    setResult(nbrOfCorrectAnswers);
     console.log('showResult();');
     //send result to server
     
@@ -229,7 +362,7 @@ function updateProgressbar() {
 }
 
 function goToMenu() {
-    window.location = "basic.php";
+    window.location = "http://www.hygienspelet.se/main";
 }
 
 function getSelectedAnswers() {
@@ -306,4 +439,39 @@ function home() {
     if (window.confirm("Vill du verkligen återvända till menyn?") ) {
         goToMenu();
     }
+}
+
+function setResult(result) {
+
+    /*
+    10 points per correct answer.
+     */
+    result=result*10;
+
+    if(creator){
+        console.log('Creator Result:'+result);
+
+        $.getJSON('http://hygienspelet.se/setresultcre/id='+challengeID+'&s='+result, function (jd) {
+
+        });
+
+    }
+    else if(reciever){
+        console.log('Reciever Result:'+result);
+        /*
+        kontrollera vem som vunnit o uppdatera deras score.
+         */
+
+        $.getJSON('http://hygienspelet.se/setresultrec/id='+challengeID+'&s='+result, function (jd) {
+
+        });
+    }
+    else if(pract){
+        console.log('Practice Result:'+result);
+        $.getJSON('http://hygienspelet.se/setresultpra/id='+unitID+'&s='+result, function (jd) {
+
+        });
+    }
+
+
 }

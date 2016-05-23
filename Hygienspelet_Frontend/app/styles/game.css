@@ -1,22 +1,22 @@
-body{
-    overflow-x: hidden;
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .hero {
-    background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
-    background-size: cover;
-    overflow-x: hidden;
-    min-height: 100vh;
-}
-.hero:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #0666b0;
-    opacity: .5;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.2);
+    overflow-y: auto;
+    margin: 0 auto;
+    padding-top: 2vh;
 }
 
 #logotype{
@@ -24,15 +24,15 @@ body{
      background-size: contain;
      width: 60%;
      height: 100%;
-     min-height: 20px;
+     min-height: 80%;
      vertical-align: middle;
  }
 
 #headerRow{
-    border-bottom: #000000;
-    border-bottom: groove;
-    height: 6vh;
-    min-height: 20px;
+    border-bottom: 2px solid white;
+    height: 10vh;
+    min-height: 60px;
+    position: static;
 }
 
 .container-fluid{
@@ -50,13 +50,19 @@ body{
     width: 20%;
     vertical-align: middle;
 }
+
+
 #homebtn{
     background-color: transparent;
     border-color: transparent;
     margin: 0%;
     margin-bottom: 2%;
     height: 125%;
+    min-height: 100%;
+    width: auto;
+    outline: none;
 }
+
 #homebtn:hover{
     background: rgba(230,250,255, 0.1);
 }
@@ -79,20 +85,20 @@ body{
     margin: 0%;
     margin-bottom: 2%;
     height: 125%;
+    outline: none;
+
 }
 #soundbtn:hover{
     background: rgba(230,250,255, 0.1);
 }
 #question{
-    height: 40vh;
+    min-height: 25vh;
     margin-bottom: 1vh;
     margin-top: 1vh;
 }
 
-
-
 #questionwell{
-    height: 100%;
+    min-height: 25vh;
     width: 100%;
 }
 
@@ -109,8 +115,7 @@ body{
 }
 .btn-group{
     width: 100%;
-    margin-top: 1% ;
-    margin-bottom: 1%;
+    margin-bottom: 1vh;
 }
 
 .btn{
@@ -147,17 +152,14 @@ body{
 }
 
 #proceed-img{
-
-    width: 50% ;
-
+    width: 25% ;
 }
 
 @media only screen and (min-width: 1024px) {
     #headerRow{
-        border-bottom: #000000;
-        border-bottom: groove;
-        height: 6vh;
-        min-height: 20px;
+        border-bottom: 2px solid white;
+        height: 10vh;
+        min-height: 60px;
     }
 
     #logotype {
@@ -187,10 +189,13 @@ body{
     }
 
     .hero {
-        background: url("http://hygienspelet.se/resources/bakgrund-web.jpg") no-repeat center center;
-        background-size: cover;
-        height: 100%;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        border-right: solid;
+        border-left: solid;
+        border-color: rgba(0,0,0, 0.2);
         overflow-x: hidden;
+        overflow-y: auto;
     }
 
 

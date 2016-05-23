@@ -17,7 +17,7 @@ $(function () {
 
 
 
-        var url = "scripts/contact.php";
+        var url = "http://hygienspelet.se/scripts/contact.php";
 
         $.ajax({
             type: "POST",
@@ -87,14 +87,9 @@ function showUnitHsList (){
 
                 }
             }
-
             $('#history').html(res);
-
         }
     })
-
-
-
 };
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -104,54 +99,42 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 
 function showActiveChallengesList (){
+    var unit = document.getElementById("hiddenID").value;
+    $.getJSON('http://hygienspelet.se/getactive/'+unit, function (jd) {
+        var res=null;
 
-    /*
-    Get active challenges as json from server.
-     */
-
-    var res=null;
-
-    for (var i=0;i<25;i++){
-        if (res===null){
-            /*
-            Change to hygienspelet.se/acceptChallenge/ID
-            Fetch ChallengeUnitName and Challenge ID.
-             */
-            res = ' <a href="game.php"><li class="list-group-item">Aktiva Utmaningar '+i+' </li></a>';
+        for (var i = 0; i < jd.length; i++) {
+            if (res===null){
+                res = ' <a href="http://www.hygienspelet.se/game/ch='+jd[i].id+'"><li class="list-group-item">ID: (' + jd[i].id + ') Mot: ' + jd[i].name + ' </li></a>';
+            }
+            else{
+                res += ' <a href="http://www.hygienspelet.se/game/ch='+jd[i].id+'"><li class="list-group-item">ID: (' + jd[i].id + ') Mot: ' + jd[i].name + ' </li></a>';
+            }
         }
-        else{
-            res += ' <a href="game.php"><li class="list-group-item">Aktiva Utmaningar '+i+' </li></a>';
-
-        }
-
-    }
-
-    $('#actives').html(res);
-
+        $('#actives').html(res);
+    })
 };
 
 
 function showFinishedChallengesList (){
 
-/*
-Get JSON with the 10 latest finished challenges.
- */
+    var unit = document.getElementById("hiddenID").value;
+    $.getJSON('http://hygienspelet.se/getfinished/'+unit, function (jd) {
+
     var res=null;
 
-    for (var i=0;i<25;i++){
+    for (var i=0;i<jd.length;i++){
         if (res===null){
-            res = ' <li class="list-group-item">Avslutade Utmaningar ' +i+' </li>';
+            res = ' <li class="list-group-item">'+jd[i].CreatorName+': ' +jd[i].creator_score+ ' Poäng VS '+jd[i].RecieverName+': ' +jd[i].reciever_score+ ' Poäng</li>';
         }
         else{
-            res += ' <li class="list-group-item">Avslutade Utmaningar '+i+' </li>';
+            res += ' <li class="list-group-item">'+jd[i].CreatorName+': ' +jd[i].creator_score+ ' Poäng VS '+jd[i].RecieverName+': ' +jd[i].reciever_score+ ' Poäng</li>';
 
         }
-
-        
     }
 
     $('#finished').html(res);
-
+    })
 };
 
 
@@ -187,4 +170,3 @@ function startChallenge() {
     var challengeID; 
     
 }
-
